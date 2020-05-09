@@ -27,11 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter1 is nested, while counter2 is not
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter2 uses closure. It looks for the variable count outside of itself
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * counter1 would be preferable when using the variable for more than one function. counter2 would be preferable when you want the variable to be bound to the function.
 */
 
 // counter1 code
@@ -56,11 +56,10 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  return Math.round(Math.random() * 2);
 }
+console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -76,12 +75,23 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(cb, cb2, num){
+  let num2 = Math.round(Math.random()*(cb*num));
+  let num3 = Math.round(Math.random()*(cb2*num));
+  if (num2 < 0){
+    num2 = 0;
+  };
+  if (num3 < 0){
+    num3 = 0;
+  };
+  let object2 = {
+    "Home":num2,
+    "Away":num3
+  };
+  let x = object2;
+  return x;
 }
-
+console.log(finalScore(inning(), inning(), 9));
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -103,8 +113,11 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(cb, num) {
+  let x = newObject.map( x =>
+    `${id}` "inning" + ":" +`${cb}`
+  );
+  return newObject;
 }
-
+console.log(scoreboard(inning(), 9));
 
