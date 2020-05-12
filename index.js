@@ -113,11 +113,44 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(cb, num) {
-  let x = newObject.map( x =>
-    `${id}` "inning" + ":" +`${cb}`
-  );
-  return newObject;
+function sum(numbers) {
+  return numbers.reduce((sum, next) => sum + next, 0)
 }
-console.log(scoreboard(inning(), 9));
 
+function scoreboard(getInningScore, inning, inningCount) {
+  const homeTeamScores = [];
+  const awayTeamScores = [];
+
+  for (let currentInning = 1; currentInning <= inningCount; ++currentInning) {
+    homeTeamScores.push(inning())
+    awayTeamScores.push(inning())
+  }
+
+  let ret = '';
+
+  for (let i=0; i<homeTeamScores.length; ++i) {
+    const inning = i+1;
+    let suffix = 'th';
+    switch (inning) {
+      case 1:
+        suffix = 'st';
+        break;
+      case 2:
+        suffix = 'nd';
+        break;
+      case 3:
+        suffix = 'rd'
+        break;
+      default:
+        suffix = 'th';
+        break;
+    }
+    ret += `${inning}${suffix} inning: ${awayTeamScores[i]} - ${homeTeamScores[i]}\n`
+  }
+  ret += '\n'
+  ret += `Final score: ${sum(awayTeamScores)} - ${sum(homeTeamScores)}`
+
+  return ret;
+}
+
+console.log(scoreboard(undefined, inning, 9));
