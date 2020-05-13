@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+Closure seems to be for when you need a variable that needs to be used by other functions. That variable being in the global scope allows for better use of the variable by keeping it in memory.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +64,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+It is used when the console.log in the return function requests the name of the player.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+His name would be the same, but the rolled number would be different.
 c. What is the lexical scope of `newRoll`? 
+newRoll's scope consists inside the return function.
 
 ### Task 3 - Stretch Goals
 
